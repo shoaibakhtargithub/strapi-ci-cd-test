@@ -15,4 +15,4 @@
 - Works with local MySQL via host.docker.internal
 - then created docker image 
 - after created i am running this image to create container 
-- and successfully created container 
+- and successfully created container and run application
