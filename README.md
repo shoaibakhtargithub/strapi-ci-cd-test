@@ -1,12 +1,12 @@
 
-### **day1 Work**
+ **day1 Work**
 - Cloned the provided Strapi project from GitHub
 - Installed dependencies and ran Strapi locally
 - Created "Article" collection type in Strapi
 - Verified that MySQL tables were created
 - Pushed initial Strapi setup to the `shoaib` branch
 
-# **day2 – Strapi Backend**
+ **day2 – Strapi Backend**
 
 - Strapi API with MySQL
 - Dockerfile added
@@ -17,7 +17,7 @@
 - after created i am running this image to create container 
 - and successfully created container and run application
 
-# **day3 - work**
+ **day3 - work**
 
 - Created Docker setup with a user-defined network strapi-net.
 - Added PostgreSQL container with credentials via environment variables.
@@ -191,6 +191,83 @@ volumes:
 networks:
   strapi-net:
     external: true
+
+
+  **day5 - work**
+
+  1. VPC (Virtual Private Cloud)
+
+- Created a new VPC with CIDR block 10.0.0.0/16.
+- This isolates our infrastructure inside a private network.
+
+2. Subnet
+- Created a public subnet with CIDR 10.0.1.0/24.
+- Subnet is in us-east-1a availability zone.
+
+3. Internet Gateway (IGW)
+- IGW is attached to the VPC so that resources in the VPC can access the internet.
+
+4. Route Table & Association
+- A route table is created with a default route:
+- 0.0.0.0/0 → Internet Gateway
+
+5. Security Group for EC2
+- Security group strapi-sg allows:
+- SSH (port 22) → To connect to EC2
+- Strapi (port 1337) → Application access
+- Outbound traffic allowed to anywhere
+
+6. EC2 Instance
+- Uses Amazon Linux 2 AMI.
+- Instance type: t3.small 
+- Key pair added for SSH access.
+- Security group and subnet attached.
+- EC2 runs Docker via user_data script.
+
+User Data Script Performs:
+- Updates the server
+- Installs Docker
+- Starts and enables Docker service
+- Adds ec2-user to docker group
+- Pulls the Strapi Docker image:
+- docker pull my-image-name
+- Runs Strapi container: docker run -d --name strapi -p 1337:1337 my-image-name
+- http://ec2-public-ip:1337
+
+
+terraform folder
+main.tf
+- VPC
+- Subnet
+- Internet Gateway
+- Route Table & Association
+- Security Group
+- EC2 instance
+- variables.tf
+
+Stores input variables:
+- aws_region
+- instance_type
+- key_name
+- docker_image
+- terraform.tfvars
+
+user_data.sh
+- Bootstraps EC2 with Docker and Strapi.
+
+.gitignore
+- Ensures sensitive files like .tfstate, .tfvars, and .terraform/ are not pushed to GitHub.
+
+Run these command
+- terraform init
+- terraform plan
+- terraform apply
+
+Then done ssh into ec2 
+- ssh -i my-key.pem ec2-user@<public-ip>  go to ec2 and check every things running
+- terraform destroy  - destroye every infrastructure
+
+
 
 
 

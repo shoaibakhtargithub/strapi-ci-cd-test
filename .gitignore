@@ -129,3 +129,33 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+
+# Local .terraform directories
+.terraform/
+
+# Terraform state files
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore sensitive variable files if they contain secrets
+terraform.tfvars
+*.auto.tfvars
+
+# Ignore override files (optional)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore plan output
+*.plan
+
+shoaib-strapi-keypair.pem
