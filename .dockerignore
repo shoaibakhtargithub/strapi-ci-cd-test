@@ -2,3 +2,10 @@ node_modules
 npm-debug.log
 build
 .cache
+terraform/
+.git
+.github
+docker-compose.yml
+*.md
+nginx
+.env
