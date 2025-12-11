@@ -22,6 +22,6 @@ resource "aws_db_instance" "strapi_db" {
   db_subnet_group_name   = aws_db_subnet_group.default.name
   multi_az = false
   tags = {
-    Name = "strapi-rds"
+    Name = "shoaib-strapi-rds"
   }
 }

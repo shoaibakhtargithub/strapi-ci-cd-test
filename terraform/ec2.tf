@@ -28,6 +28,6 @@ resource "aws_instance" "strapi_ec2" {
 })
 
   tags = {
-    Name = "Strapi-EC2"
+    Name = "Shoaib-Strapi-EC2"
   }
 }

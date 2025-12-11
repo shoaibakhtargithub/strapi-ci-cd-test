@@ -27,7 +27,7 @@ resource "aws_security_group" "strapi_sg" {
   }
 
   tags = {
-    Name = "strapi-sg"
+    Name = "shoaib-strapi-sg"
   }
 }
 
@@ -53,6 +53,6 @@ resource "aws_security_group" "rds_sg" {
   }
 
   tags = {
-    Name = "strapi-rds-sg"
+    Name = "shoaib-strapi-rds-sg"
   }
 }
