@@ -130,9 +130,10 @@ build
 .strapi-updater.json
 .strapi-cloud.json
 
-.terraform/
+.terraform
 terraform.tfstate
 terraform.tfstate.backup
+.terraform.lock.hcl
 
 
 # Ignore override files (optional)
