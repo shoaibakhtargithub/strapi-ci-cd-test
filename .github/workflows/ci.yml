@@ -48,7 +48,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .github/image_tag.txt
           git commit -m "ci: update image_tag to ${{ github.sha }}" || echo "no changes to commit"
-          git push origin HEAD:shoaib
+          git push origin HEAD:main
 
       - name: Set job output
         id: set-output
