@@ -1,5 +1,5 @@
 resource "aws_security_group" "strapi_sg" {
-  name        = "strapi-sg"
+  name        = "shoaib-strapi-sg"   # UPDATED
   description = "Allow Strapi & SSH"
   vpc_id      = data.aws_vpc.default.id
 
@@ -32,17 +32,16 @@ resource "aws_security_group" "strapi_sg" {
 }
 
 resource "aws_security_group" "rds_sg" {
-  name        = "strapi-rds-sg"
+  name        = "shoaib-rds-sg"   # UPDATED
   description = "Allow DB access from Strapi EC2"
   vpc_id      = data.aws_vpc.default.id
 
-  
   ingress {
-    description       = "Postgres from strapi"
-    from_port         = 5432
-    to_port           = 5432
-    protocol          = "tcp"
-    security_groups   = [aws_security_group.strapi_sg.id]
+    description     = "Postgres from strapi"
+    from_port       = 5432
+    to_port         = 5432
+    protocol        = "tcp"
+    security_groups = [aws_security_group.strapi_sg.id]
   }
 
   egress {
@@ -53,6 +52,6 @@ resource "aws_security_group" "rds_sg" {
   }
 
   tags = {
-    Name = "shoaib-strapi-rds-sg"
+    Name = "shoaib-rds-sg"
   }
 }
