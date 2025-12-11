@@ -11,7 +11,8 @@ usermod -aG docker ec2-user
 
 
 aws ecr get-login-password --region eu-north-1 \
-  | docker login --username AWS --password-stdin shoaib-strapi-image
+  | docker login --username AWS --password-stdin 301782007642.dkr.ecr.eu-north-1.amazonaws.com
+
 
 docker pull ${docker_image}
 docker rm -f strapi || true
