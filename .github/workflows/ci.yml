@@ -1,7 +1,7 @@
 name: CI - Build & Push Strapi Image to ECR
 on:
   push:
-    branches: [ shoaib ]
+    branches: [ main ]
 
 permissions:
   contents: write
