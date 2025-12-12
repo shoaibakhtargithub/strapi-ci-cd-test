@@ -1,6 +1,6 @@
 aws_region    = "eu-north-1"
 instance_type = "t3.small"
-key_name = "my-strapi-key"
+key_name = "my-new-strapi-key"
 ecr_registry  = "301782007642.dkr.ecr.eu-north-1.amazonaws.com"
 docker_image  = "301782007642.dkr.ecr.eu-north-1.amazonaws.com/shoaib-strapi-image:latest"
 
